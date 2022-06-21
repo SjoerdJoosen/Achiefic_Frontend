@@ -1,33 +1,32 @@
-import http from "../http-common";
+import axios from "axios";
 
-class TutorialDataService {
-  getAll() {
-    return http.get("/tutorials");
+
+const Story_API_BASE_URL = "http://localhost:8080/api";
+
+class StoryDataService {
+  getAllStories() {
+    return axios.get(Story_API_BASE_URL + "/stories");
   }
 
-  get(id) {
-    return http.get(`/tutorials/${id}`);
+  getStoryById(id) {
+    return axios.get(Story_API_BASE_URL + "/stories/" + id);
   }
 
-  create(data) {
-    return http.post("/tutorials", data);
+  addStory(data) {
+    return axios.post(Story_API_BASE_URL + "/story/" + data);
   }
 
-  update(id, data) {
-    return http.put(`/tutorials/${id}`, data);
+  updateStory(id, data) {
+    return axios.update(Story_API_BASE_URL + "/story/" + id, data);
   }
 
-  delete(id) {
-    return http.delete(`/tutorials/${id}`);
-  }
-
-  deleteAll() {
-    return http.delete(`/tutorials`);
+  deleteStory(id) {
+    return axios.delete(Story_API_BASE_URL + "/story/" + id);
   }
 
   findByTitle(title) {
-    return http.get(`/tutorials?title=${title}`);
+    return axios.get(Story_API_BASE_URL + "/stories?title" + title);
   }
 }
 
-export default new TutorialDataService();
+export default new StoryDataService();

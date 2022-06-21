@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import StoryDataService from "../services/story.service";
+import StoryDataService from "../Services/story.service";
 import { Link } from "react-router-dom";
 
 export default class StoryList extends Component {
@@ -33,7 +33,7 @@ export default class StoryList extends Component {
   }
 
   retrieveStories() {
-    StoryDataService.getAll()
+    StoryDataService.getAllStories()
       .then(response => {
         this.setState({
           stories: response.data
@@ -125,7 +125,7 @@ export default class StoryList extends Component {
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActivestory(story, index)}
+                  onClick={() => this.setActiveStory(story, index)}
                   key={index}
                 >
                   {story.title}

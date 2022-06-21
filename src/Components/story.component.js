@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import StoryDataService from "../services/story.service";
+import StoryDataService from "../Services/story.service";
 
 export default class Story extends Component {
   constructor(props) {

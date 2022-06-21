@@ -3,9 +3,9 @@ import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import AddStory from "./components/add-story.component";
-import Story from "./components/story.component";
-import StoriesList from "./components/stories-list.component";
+import AddStory from "./Components/add-story.component";
+import Story from "./Components/story.component";
+import StoriesList from "./Components/stories-list.component";
 
 class App extends Component {
   render() {
