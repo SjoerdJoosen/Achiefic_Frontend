@@ -62,7 +62,7 @@ export default class AddStory extends Component {
       description: this.state.description
     };
 
-    StoryDataService.create(data)
+    StoryDataService.addStory(data)
       .then(response => {
         this.setState({
           id: response.data.id,

@@ -54,7 +54,7 @@ export default class Story extends Component {
   }
 
   getStory(id) {
-    StoryDataService.get(id)
+    StoryDataService.getStoryById(id)
       .then(response => {
         this.setState({
           currentStory: response.data
@@ -74,7 +74,7 @@ export default class Story extends Component {
       published: status
     };
 
-    StoryDataService.update(this.state.currentStory.id, data)
+    StoryDataService.updateStory(this.state.currentStory.id, data)
       .then(response => {
         this.setState(prevState => ({
           currentStory: {
@@ -90,7 +90,7 @@ export default class Story extends Component {
   }
 
   updateStory() {
-    StoryDataService.update(
+    StoryDataService.updateStory(
       this.state.currentStory.id,
       this.state.currentStory
     )
@@ -106,7 +106,7 @@ export default class Story extends Component {
   }
 
   deleteStory() {    
-    StoryDataService.delete(this.state.currentStory.id)
+    StoryDataService.deleteStory(this.state.currentStory.id)
       .then(response => {
         console.log(response.data);
         this.props.history.push('/Stories')

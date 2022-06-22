@@ -9,7 +9,7 @@ class StoryDataService {
   }
 
   getStoryById(id) {
-    return axios.get(Story_API_BASE_URL + "/stories/" + id);
+    return axios.get(Story_API_BASE_URL + `/stories/${id}`);
   }
 
   addStory(data) {
