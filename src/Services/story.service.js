@@ -13,11 +13,11 @@ class StoryDataService {
   }
 
   addStory(story) {
-    return axios.post(Story_API_BASE_URL + "/story/" + story);
+    return axios.post(Story_API_BASE_URL + "/story/", story);
   }
 
-  updateStory(id, data) {
-    return axios.update(Story_API_BASE_URL + "/story/" + id, data);
+  updateStory(data) {
+    return axios.put(Story_API_BASE_URL + "/story/6/", data);
   }
 
   deleteStory(id) {

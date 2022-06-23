@@ -91,7 +91,7 @@ export default class Story extends Component {
 
   updateStory() {
     StoryDataService.updateStory(
-      this.state.currentStory.id,
+      this.state.currentStory.storyId,
       this.state.currentStory
     )
       .then(response => {

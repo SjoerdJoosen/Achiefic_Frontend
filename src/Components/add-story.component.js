@@ -53,34 +53,46 @@ export default class AddStory extends Component {
     });
   }
 
+  saveStory = (e) => {
+    e.preventDefault()
+    let story = {  title: this.state.title,
+                      author: this.state.author,
+                      genre: this.state.genre,
+                      description: this.state.description,
+                      actualStory: this.state.actualStory}
+    console.log('Story =>' + JSON.stringify(story))
 
-  saveStory() {
-    var story = {
-      title: this.state.title,
-      author: this.state.author,
-      genre: this.state.genre,
-      description: this.state.description,
-      actualStory: this.state.actualStory
-    };
+    StoryDataService.addStory(story);
+}
 
-    StoryDataService.addStory(story)
-      .then(response => {
-        this.setState({
-          id: response.story.id,
-          title: response.story.title,
-          author: response.story.author,
-          genre: response.story.genre,
-          description: response.story.description,
-          actualStory: response.story.actualStory,
 
-        });
-        console.log(response.story);
-        alert("addStory");
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
+  // saveStory() {
+  //   var story = {
+  //     title: this.state.title,
+  //     author: this.state.author,
+  //     genre: this.state.genre,
+  //     description: this.state.description,
+  //     actualStory: this.state.actualStory
+  //   };
+
+  //   StoryDataService.addStory(story)
+  //     .then(response => {
+  //       this.setState({
+  //         id: response.story.id,
+  //         title: response.story.title,
+  //         author: response.story.author,
+  //         genre: response.story.genre,
+  //         description: response.story.description,
+  //         actualStory: response.story.actualStory,
+
+  //       });
+  //       console.log(response.story);
+  //       alert("addStory");
+  //     })
+  //     .catch(e => {
+  //       console.log(e);
+  //     });
+  // }
 
   newStory() {
     this.setState({
@@ -96,16 +108,9 @@ export default class AddStory extends Component {
 
   render() {
     return (
-      <div className="submit-form">
-        {this.state.submitted ? (
+
           <div>
-            <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newStory}>
-              Add
-            </button>
-          </div>
-        ) : (
-          <div>
+            <form>
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input
@@ -170,13 +175,13 @@ export default class AddStory extends Component {
                 name="actualStory"
               />
             </div>
+          </form>
 
             <button onClick={this.saveStory} className="btn btn-success">
               Submit
             </button>
+
           </div>
         )}
-      </div>
-    );
-  }
-}
+    }
+

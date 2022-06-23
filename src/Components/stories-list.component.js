@@ -152,20 +152,32 @@ export default class StoryList extends Component {
               </div>
               <div>
                 <label>
+                  <strong>Author:</strong>
+                </label>{" "}
+                {currentStory.author}
+              </div>
+              <div>
+                <label>
+                  <strong>Genre:</strong>
+                </label>{" "}
+                {currentStory.genre}
+              </div>
+              <div>
+                <label>
                   <strong>Description:</strong>
                 </label>{" "}
                 {currentStory.description}
               </div>
               <div>
                 <label>
-                  <strong>Status:</strong>
+                  <strong>ActualStory:</strong>
                 </label>{" "}
-                {currentStory.published ? "Published" : "Pending"}
+                {currentStory.actualStory}
               </div>
 
 
-              <Link
-                to={"/Stories/" + currentStory.id}
+
+              <Link variant="outlined" onClick={() => {window.location.href=`/Stories/6`}}
                 className="badge badge-warning"
                 >
                 Edit
