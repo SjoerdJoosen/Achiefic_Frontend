@@ -19,7 +19,6 @@ export default class Story extends Component {
         genre: "",
         description: "",
         actualStory: "", 
-        published: false
       },
       message: ""
     };
@@ -54,6 +53,7 @@ export default class Story extends Component {
   }
 
   getStory(id) {
+    console.log(id);
     StoryDataService.getStoryById(id)
       .then(response => {
         this.setState({

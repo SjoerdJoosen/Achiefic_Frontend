@@ -19,9 +19,7 @@ export default class AddStory extends Component {
       genre: "",
       description: "",
       actualStory: "", 
-      published: false,
 
-      submitted: false
     };
   }
 
@@ -57,25 +55,27 @@ export default class AddStory extends Component {
 
 
   saveStory() {
-    var data = {
+    var story = {
       title: this.state.title,
-      description: this.state.description
+      author: this.state.author,
+      genre: this.state.genre,
+      description: this.state.description,
+      actualStory: this.state.actualStory
     };
 
-    StoryDataService.addStory(data)
+    StoryDataService.addStory(story)
       .then(response => {
         this.setState({
-          id: response.data.id,
-          title: response.data.title,
-          author: response.data.author,
-          genre: response.data.genre,
-          description: response.data.description,
-          actualStory: response.data.actualStory,
-          published: response.data.published,
+          id: response.story.id,
+          title: response.story.title,
+          author: response.story.author,
+          genre: response.story.genre,
+          description: response.story.description,
+          actualStory: response.story.actualStory,
 
-          submitted: true
         });
-        console.log(response.data);
+        console.log(response.story);
+        alert("addStory");
       })
       .catch(e => {
         console.log(e);
@@ -90,9 +90,7 @@ export default class AddStory extends Component {
       genre: "",
       description: "",
       actualStory: "", 
-      published: false,
 
-      submitted: false
     });
   }
 

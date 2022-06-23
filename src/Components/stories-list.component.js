@@ -14,7 +14,7 @@ export default class StoryList extends Component {
 
     this.state = {
       stories: [],
-      currentstory: null,
+      currentStory: null,
       currentIndex: -1,
       searchTitle: ""
     };
@@ -48,14 +48,14 @@ export default class StoryList extends Component {
   refreshList() {
     this.retrieveStories();
     this.setState({
-      currentstory: null,
+      currentStory: null,
       currentIndex: -1
     });
   }
 
   setActiveStory(story, index) {
     this.setState({
-      currentstory: story,
+      currentStory: story,
       currentIndex: index
     });
   }
@@ -73,7 +73,7 @@ export default class StoryList extends Component {
 
   searchTitle() {
     this.setState({
-      currentstory: null,
+      currentStory: null,
       currentIndex: -1
     });
 
@@ -90,7 +90,7 @@ export default class StoryList extends Component {
   }
 
   render() {
-    const { searchTitle, stories, currentstory, currentIndex } = this.state;
+    const { searchTitle, stories, currentStory, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -141,32 +141,33 @@ export default class StoryList extends Component {
           </button>
         </div>
         <div className="col-md-6">
-          {currentstory ? (
+          {currentStory ? (
             <div>
               <h4>story</h4>
               <div>
                 <label>
                   <strong>Title:</strong>
                 </label>{" "}
-                {currentstory.title}
+                {currentStory.title}
               </div>
               <div>
                 <label>
                   <strong>Description:</strong>
                 </label>{" "}
-                {currentstory.description}
+                {currentStory.description}
               </div>
               <div>
                 <label>
                   <strong>Status:</strong>
                 </label>{" "}
-                {currentstory.published ? "Published" : "Pending"}
+                {currentStory.published ? "Published" : "Pending"}
               </div>
 
+
               <Link
-                to={"/stories/" + currentstory.id}
+                to={"/Stories/" + currentStory.id}
                 className="badge badge-warning"
-              >
+                >
                 Edit
               </Link>
             </div>

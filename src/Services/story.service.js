@@ -12,8 +12,8 @@ class StoryDataService {
     return axios.get(Story_API_BASE_URL + `/stories/${id}`);
   }
 
-  addStory(data) {
-    return axios.post(Story_API_BASE_URL + "/story/" + data);
+  addStory(story) {
+    return axios.post(Story_API_BASE_URL + "/story/" + story);
   }
 
   updateStory(id, data) {
